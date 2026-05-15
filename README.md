@@ -446,7 +446,7 @@ git push origin feature/nueva-funcionalidad
 
 ## Proyecto desarrollado por Isai Reyes
 
-Sistema administrativo inmobiliario desarrollado bajo Ukwaju Systems 🏢
+Sistema administrativo inmobiliario 🏢
 
 </div>
 
