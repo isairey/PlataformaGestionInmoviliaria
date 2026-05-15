@@ -1,0 +1,7 @@
+*.md
+./backup
+coverage
+node_modules
+tmp
+dist
+.next

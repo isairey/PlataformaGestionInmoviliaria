@@ -1,0 +1,39 @@
+# Project directories and files
+node_modules
+tmp
+/data
+.env*
+!.env.domain
+.vscode/ipch
+deploy-*.sh
+dist
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# test coverage
+coverage
+
+# Rest client vscode plugin
+*.rest
+
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+backup/*
+!backup/demodb.dump
+
+webapps/*/public/__ENV.js
+
+mre-*
+mre
+mre.exe
+mre-macos
+

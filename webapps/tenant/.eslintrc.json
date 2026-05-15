@@ -1,0 +1,16 @@
+{
+  "root": true,
+  "extends": ["next/core-web-vitals", "next/typescript", "prettier"],
+  "rules": {
+    "sort-imports": [
+      "error",
+      {
+        "allowSeparatedGroups": false,
+        "ignoreCase": true,
+        "ignoreDeclarationSort": false,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+      }
+    ]
+  }
+}

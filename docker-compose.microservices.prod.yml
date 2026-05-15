@@ -1,0 +1,170 @@
+services:
+  ###############################################################################
+  # Redis
+  ###############################################################################
+  # redis:
+  #   logging:
+  #     driver: 'syslog'
+  #     options:
+  #       syslog-address: 'udp://localhost:$LOGSTASH_UDP_PORT'
+  #       tag: '{{.Name}}/{{.ID}}'
+  #     #   syslog-facility: 'daemon'
+  #   depends_on:
+  #     - kibana
+  ###############################################################################
+  # Mongo
+  ###############################################################################
+  # mongo:
+  #   logging:
+  #     driver: 'syslog'
+  #     options:
+  #       syslog-address: 'udp://localhost:$LOGSTASH_UDP_PORT'
+  #       tag: '{{.Name}}/{{.ID}}'
+  #     #   syslog-facility: 'daemon'
+  #   depends_on:
+  #     - kibana
+  ###############################################################################
+  # Gateway
+  ###############################################################################
+  gateway:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: services/gateway/Dockerfile
+    deploy:
+      resources:
+        limits:
+          memory: 500M
+  ###############################################################################
+  # Authenticator
+  ###############################################################################
+  authenticator:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: services/authenticator/Dockerfile
+    # logging:
+    #   driver: syslog
+    #   options:
+    #     syslog-address: 'udp://localhost:$LOGSTASH_UDP_PORT'
+    #     tag: '{{.Name}}/{{.ID}}'
+    # depends_on:
+    #   - kibana
+    deploy:
+      resources:
+        limits:
+          memory: 500M
+  ###############################################################################
+  # PDFGenerator
+  ###############################################################################
+  pdfgenerator:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: services/pdfgenerator/Dockerfile
+    # logging:
+    #   driver: syslog
+    #   options:
+    #     syslog-address: 'udp://localhost:$LOGSTASH_UDP_PORT'
+    #     tag: '{{.Name}}/{{.ID}}'
+    # depends_on:
+    #   - kibana
+    deploy:
+      resources:
+        limits:
+          memory: 500M
+  ###############################################################################
+  # Emailer
+  ###############################################################################
+  emailer:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: services/emailer/Dockerfile
+    # logging:
+    #   driver: syslog
+    #   options:
+    #     syslog-address: 'udp://localhost:$LOGSTASH_UDP_PORT'
+    #     tag: '{{.Name}}/{{.ID}}'
+    # depends_on:
+    #   - kibana
+    deploy:
+      resources:
+        limits:
+          memory: 500M
+  ###############################################################################
+  # api
+  ###############################################################################
+  api:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: services/api/Dockerfile
+    # logging:
+    #   driver: syslog
+    #   options:
+    #     syslog-address: 'udp://localhost:$LOGSTASH_UDP_PORT'
+    #     tag: '{{.Name}}/{{.ID}}'
+    # depends_on:
+    #   - kibana
+    deploy:
+      resources:
+        limits:
+          memory: 500M
+  ###############################################################################
+  # tenantapi
+  ###############################################################################
+  tenantapi:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: services/tenantapi/Dockerfile
+    # logging:
+    #   driver: syslog
+    #   options:
+    #     syslog-address: 'udp://localhost:$LOGSTASH_UDP_PORT'
+    #     tag: '{{.Name}}/{{.ID}}'
+    # depends_on:
+    #   - kibana
+    deploy:
+      resources:
+        limits:
+          memory: 500M
+  ###############################################################################
+  # Landlord frontend
+  ###############################################################################
+  landlord-frontend:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: webapps/landlord/Dockerfile
+    # logging:
+    #   driver: syslog
+    #   options:
+    #     syslog-address: 'udp://localhost:$LOGSTASH_UDP_PORT'
+    #     tag: '{{.Name}}/{{.ID}}'
+    # depends_on:
+    #   - kibana
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+  ###############################################################################
+  # Tenant frontend
+  ###############################################################################
+  tenant-frontend:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: webapps/tenant/Dockerfile
+    # logging:
+    #   driver: syslog
+    #   options:
+    #     syslog-address: 'udp://localhost:$LOGSTASH_UDP_PORT'
+    #     tag: '{{.Name}}/{{.ID}}'
+    # depends_on:
+    #   - kibana
+    deploy:
+      resources:
+        limits:
+          memory: 1G

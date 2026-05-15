@@ -1,0 +1,234 @@
+services:
+  ###############################################################################
+  # Mongo
+  ###############################################################################
+  mongo:
+    command: --quiet --logpath /dev/null
+    ports:
+      - '$MONGO_PORT:$MONGO_PORT'
+  ###############################################################################
+  # ResetService
+  ###############################################################################
+  resetservice:
+    image: 'ghcr.io/microrealestate/microrealestate/resetservice:${MRE_VERSION:-latest}'
+    build:
+      context: .
+      dockerfile: services/resetservice/dev.Dockerfile
+    environment:
+      - NODE_OPTIONS=--trace-warnings
+      - NODE_ENV
+      - PORT=$RESETSERVICE_PORT
+      - LOGGER_LEVEL
+      - REDIS_URL
+      - REDIS_PASSWORD
+      - MONGO_URL
+    volumes:
+      - ./package.json:/usr/app/package.json
+      - ./types/src:/usr/app/types/src
+      - ./types/package.json:/usr/app/types/package.json
+      - ./types/tsconfig.json:/usr/app/types/tsconfig.json
+      - ./services/common/src:/usr/app/services/common/src
+      - ./services/common/package.json:/usr/app/services/common/package.json
+      - ./services/common/tsconfig.json:/usr/app/services/common/tsconfig.json
+      - ./services/resetservice/src:/usr/app/services/resetservice/src
+      - ./services/resetservice/package.json:/usr/app/services/resetservice/package.json
+      - ./services/resetservice/tsconfig.json:/usr/app/services/resetservice/tsconfig.json
+    expose:
+      - '$RESETSERVICE_PORT'
+    ports:
+      - '$RESETSERVICE_DEBUG_PORT:9230'
+    networks:
+      - net
+    depends_on:
+      - redis
+      - mongo
+  ###############################################################################
+  # Gateway
+  ###############################################################################
+  gateway:
+    build:
+      context: .
+      dockerfile: services/gateway/dev.Dockerfile
+    environment:
+      - NODE_OPTIONS=--trace-warnings
+      - RESETSERVICE_URL
+    volumes:
+      - ./package.json:/usr/app/package.json
+      - ./types/src:/usr/app/types/src
+      - ./types/package.json:/usr/app/types/package.json
+      - ./types/tsconfig.json:/usr/app/types/tsconfig.json
+      - ./services/common/src:/usr/app/services/common/src
+      - ./services/common/package.json:/usr/app/services/common/package.json
+      - ./services/common/tsconfig.json:/usr/app/services/common/tsconfig.json
+      - ./services/gateway/src:/usr/app/services/gateway/src
+      - ./services/gateway/package.json:/usr/app/services/gateway/package.json
+      - ./services/gateway/tsconfig.json:/usr/app/services/gateway/tsconfig.json
+    ports:
+      - '$GATEWAY_DEBUG_PORT:9225'
+    depends_on:
+      - resetservice
+  ###############################################################################
+  # Authenticator
+  ###############################################################################
+  authenticator:
+    build:
+      context: .
+      dockerfile: services/authenticator/dev.Dockerfile
+    environment:
+      - NODE_OPTIONS=--trace-warnings
+    volumes:
+      - ./package.json:/usr/app/package.json
+      - ./types/src:/usr/app/types/src
+      - ./types/package.json:/usr/app/types/package.json
+      - ./types/tsconfig.json:/usr/app/types/tsconfig.json
+      - ./services/common/src:/usr/app/services/common/src
+      - ./services/common/package.json:/usr/app/services/common/package.json
+      - ./services/common/tsconfig.json:/usr/app/services/common/tsconfig.json
+      - ./services/authenticator/src:/usr/app/services/authenticator/src
+      - ./services/authenticator/package.json:/usr/app/services/authenticator/package.json
+    ports:
+      - '$AUTHENTICATOR_DEBUG_PORT:9226'
+  ###############################################################################
+  # PDFGenerator
+  ###############################################################################
+  pdfgenerator:
+    build:
+      context: .
+      dockerfile: services/pdfgenerator/dev.Dockerfile
+    environment:
+      - NODE_OPTIONS=--trace-warnings
+    volumes:
+      - ./package.json:/usr/app/package.json
+      - ./types/src:/usr/app/types/src
+      - ./types/package.json:/usr/app/types/package.json
+      - ./types/tsconfig.json:/usr/app/types/tsconfig.json
+      - ./services/common/src:/usr/app/services/common/src
+      - ./services/common/package.json:/usr/app/services/common/package.json
+      - ./services/common/tsconfig.json:/usr/app/services/common/tsconfig.json
+      - ./services/pdfgenerator/data:/usr/app/services/pdfgenerator/data
+      - ./services/pdfgenerator/src:/usr/app/services/pdfgenerator/src
+      - ./services/pdfgenerator/templates:/usr/app/services/pdfgenerator/templates
+      - ./services/pdfgenerator/package.json:/usr/app/services/pdfgenerator/package.json
+    ports:
+      - '$PDFGENERATOR_DEBUG_PORT:9227'
+  ###############################################################################
+  # Emailer
+  ###############################################################################
+  emailer:
+    build:
+      context: .
+      dockerfile: services/emailer/dev.Dockerfile
+    environment:
+      - NODE_OPTIONS=--trace-warnings
+    volumes:
+      - ./package.json:/usr/app/package.json
+      - ./types/src:/usr/app/types/src
+      - ./types/package.json:/usr/app/types/package.json
+      - ./types/tsconfig.json:/usr/app/types/tsconfig.json
+      - ./services/common/src:/usr/app/services/common/src
+      - ./services/common/package.json:/usr/app/services/common/package.json
+      - ./services/common/tsconfig.json:/usr/app/services/common/tsconfig.json
+      - ./services/emailer/src:/usr/app/services/emailer/src
+      - ./services/emailer/package.json:/usr/app/services/emailer/package.json
+    ports:
+      - '$EMAILER_DEBUG_PORT:9228'
+  ###############################################################################
+  # api
+  ###############################################################################
+  api:
+    build:
+      context: .
+      dockerfile: services/api/dev.Dockerfile
+    environment:
+      - NODE_OPTIONS=--trace-warnings
+    volumes:
+      - ./package.json:/usr/app/package.json
+      - ./types/src:/usr/app/types/src
+      - ./types/package.json:/usr/app/types/package.json
+      - ./types/tsconfig.json:/usr/app/types/tsconfig.json
+      - ./services/common/src:/usr/app/services/common/src
+      - ./services/common/package.json:/usr/app/services/common/package.json
+      - ./services/common/tsconfig.json:/usr/app/services/common/tsconfig.json
+      - ./services/api/scripts:/usr/app/services/api/scripts
+      - ./services/api/src:/usr/app/services/api/src
+      - ./services/api/package.json:/usr/app/services/api/package.json
+    ports:
+      - '$API_DEBUG_PORT:9229'
+  ###############################################################################
+  # tenantapi
+  ###############################################################################
+  tenantapi:
+    build:
+      context: .
+      dockerfile: services/tenantapi/dev.Dockerfile
+    environment:
+      - NODE_OPTIONS=--trace-warnings
+    volumes:
+      - ./package.json:/usr/app/package.json
+      - ./types/src:/usr/app/types/src
+      - ./types/package.json:/usr/app/types/package.json
+      - ./types/tsconfig.json:/usr/app/types/tsconfig.json
+      - ./services/common/src:/usr/app/services/common/src
+      - ./services/common/package.json:/usr/app/services/common/package.json
+      - ./services/common/tsconfig.json:/usr/app/services/common/tsconfig.json
+      - ./services/tenantapi/src:/usr/app/services/tenantapi/src
+      - ./services/tenantapi/package.json:/usr/app/services/tenantapi/package.json
+      - ./services/tenantapi/tsconfig.json:/usr/app/services/tenantapi/tsconfig.json
+    ports:
+      - '$TENANTAPI_DEBUG_PORT:9240'
+  ###############################################################################
+  # Landlord frontend
+  ###############################################################################
+  landlord-frontend:
+    build:
+      context: .
+      dockerfile: webapps/landlord/dev.Dockerfile
+      # base path cannot be set at runtime: https://github.com/vercel/next.js/discussions/41769
+      args:
+        - BASE_PATH=$LANDLORD_BASE_PATH
+    volumes:
+      - ./package.json:/usr/app/package.json
+      - ./webapps/commonui/components:/usr/app/webapps/commonui/components
+      - ./webapps/commonui/locales:/usr/app/webapps/commonui/locales
+      - ./webapps/commonui/scripts:/usr/app/webapps/commonui/scripts
+      - ./webapps/commonui/utils:/usr/app/webapps/commonui/utils
+      - ./webapps/commonui/package.json:/usr/app/webapps/commonui/package.json
+      - ./webapps/landlord/locales:/usr/app/webapps/landlord/locales
+      - ./webapps/landlord/public:/usr/app/webapps/landlord/public
+      - ./webapps/landlord/scripts:/usr/app/webapps/landlord/scripts
+      - ./webapps/landlord/src:/usr/app/webapps/landlord/src
+      - ./webapps/landlord/components.json:/usr/app/webapps/landlord/components.json
+      - ./webapps/landlord/i18n.js:/usr/app/webapps/landlord/i18n.js
+      - ./webapps/landlord/next.config.js:/usr/app/webapps/landlord/next.config.js
+      - ./webapps/landlord/package.json:/usr/app/webapps/landlord/package.json
+      - ./webapps/landlord/postcss.config.js:/usr/app/webapps/landlord/postcss.config.js
+      - ./webapps/landlord/tailwind.config.js:/usr/app/webapps/landlord/tailwind.config.js
+  ###############################################################################
+  # Tenant frontend
+  ###############################################################################
+  tenant-frontend:
+    build:
+      context: .
+      dockerfile: webapps/tenant/dev.Dockerfile
+      # base path cannot be set at runtime: https://github.com/vercel/next.js/discussions/41769
+      args:
+        - BASE_PATH=$TENANT_BASE_PATH
+    volumes:
+      - ./package.json:/usr/app/package.json
+      - ./types/src:/usr/app/types/src
+      - ./types/package.json:/usr/app/types/package.json
+      - ./types/tsconfig.json:/usr/app/types/tsconfig.json
+      - ./webapps/commonui/components:/usr/app/webapps/commonui/components
+      - ./webapps/commonui/locales:/usr/app/webapps/commonui/locales
+      - ./webapps/commonui/scripts:/usr/app/webapps/commonui/scripts
+      - ./webapps/commonui/utils:/usr/app/webapps/commonui/utils
+      - ./webapps/commonui/package.json:/usr/app/webapps/commonui/package.json
+      - ./webapps/tenant/locales:/usr/app/webapps/tenant/locales
+      - ./webapps/tenant/public:/usr/app/webapps/tenant/public
+      - ./webapps/tenant/src:/usr/app/webapps/tenant/src
+      - ./webapps/tenant/components.json:/usr/app/webapps/tenant/components.json
+      - ./webapps/tenant/next.config.js:/usr/app/webapps/tenant/next.config.js
+      - ./webapps/tenant/package.json:/usr/app/webapps/tenant/package.json
+      - ./webapps/tenant/postcss.config.js:/usr/app/webapps/tenant/postcss.config.js
+      - ./webapps/tenant/tailwind.config.ts:/usr/app/webapps/tenant/tailwind.config.ts
+      - ./webapps/tenant/tsconfig.json:/usr/app/webapps/tenant/tsconfig.json

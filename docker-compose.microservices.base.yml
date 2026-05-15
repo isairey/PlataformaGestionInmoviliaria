@@ -1,0 +1,237 @@
+services:
+  ###############################################################################
+  # Redis
+  ###############################################################################
+  redis:
+    image: redis:7.4-bookworm
+    expose:
+      - '$REDIS_PORT'
+    volumes:
+      - ./data/redis:/data
+    command:
+      - 'bash'
+      - '-c'
+      - 'docker-entrypoint.sh --requirepass $REDIS_PASSWORD --loglevel warning'
+    networks:
+      - net
+  ###############################################################################
+  # Mongo
+  ###############################################################################
+  mongo:
+    image: mongo:7
+    command: --quiet
+    expose:
+      - '$MONGO_PORT'
+    volumes:
+      - ./data/mongodb:/data/db
+      - ./backup:/backup
+    networks:
+      - net
+  ###############################################################################
+  # Gateway
+  ###############################################################################
+  gateway:
+    image: 'ghcr.io/microrealestate/microrealestate/gateway:${MRE_VERSION:-latest}'
+    environment:
+      - NODE_ENV
+      - LOGGER_LEVEL=$LOGGER_LEVEL
+      - PORT=8080
+      - EXPOSE_FRONTENDS=$GATEWAY_EXPOSE_FRONTENDS
+      - AUTHENTICATOR_URL
+      - API_URL
+      - PDFGENERATOR_URL
+      - EMAILER_URL
+      - LANDLORD_FRONTEND_URL
+      - LANDLORD_BASE_PATH
+      - TENANT_FRONTEND_URL
+      - TENANT_BASE_PATH
+      - DOMAIN_URL
+      - CORS_ENABLED
+      - TENANTAPI_URL
+    ports:
+      - '$GATEWAY_PORT:8080'
+    networks:
+      - net
+    depends_on:
+      - authenticator
+      - api
+      - tenantapi
+      - pdfgenerator
+      - emailer
+  ###############################################################################
+  # Authenticator
+  ###############################################################################
+  authenticator:
+    image: 'ghcr.io/microrealestate/microrealestate/authenticator:${MRE_VERSION:-latest}'
+    environment:
+      - NODE_ENV
+      - PORT=$AUTHENTICATOR_PORT
+      - LOGGER_LEVEL
+      - REDIS_URL
+      - REDIS_PASSWORD
+      - ACCESS_TOKEN_SECRET=$AUTHENTICATOR_ACCESS_TOKEN_SECRET
+      - REFRESH_TOKEN_SECRET=$AUTHENTICATOR_REFRESH_TOKEN_SECRET
+      - RESET_TOKEN_SECRET=$AUTHENTICATOR_RESET_TOKEN_SECRET
+      - APPCREDZ_TOKEN_SECRET=$AUTHENTICATOR_APPCREDZ_TOKEN_SECRET
+      - MONGO_URL
+      - EMAILER_URL
+      - SIGNUP
+      - DOMAIN_URL
+    expose:
+      - '$AUTHENTICATOR_PORT'
+    networks:
+      - net
+    depends_on:
+      - redis
+      - mongo
+      - emailer
+  ###############################################################################
+  # PDFGenerator
+  ###############################################################################
+  pdfgenerator:
+    image: 'ghcr.io/microrealestate/microrealestate/pdfgenerator:${MRE_VERSION:-latest}'
+    environment:
+      - NODE_ENV
+      - PORT=$PDFGENERATOR_PORT
+      - LOGGER_LEVEL
+      - MONGO_URL
+      - ACCESS_TOKEN_SECRET=$AUTHENTICATOR_ACCESS_TOKEN_SECRET
+      - CIPHER_KEY
+      - CIPHER_IV_KEY
+      - UPLOAD_MAX_SIZE
+    expose:
+      - '$PDFGENERATOR_PORT'
+    networks:
+      - net
+    depends_on:
+      - mongo
+  ###############################################################################
+  # Emailer
+  ###############################################################################
+  emailer:
+    image: 'ghcr.io/microrealestate/microrealestate/emailer:${MRE_VERSION:-latest}'
+    environment:
+      - NODE_ENV
+      - ALLOW_SENDING_EMAILS
+      - PORT=$EMAILER_PORT
+      - LOGGER_LEVEL
+      - APP_NAME
+      - LANDLORD_APP_URL
+      - TENANT_APP_URL
+      - MONGO_URL
+      - ACCESS_TOKEN_SECRET=$AUTHENTICATOR_ACCESS_TOKEN_SECRET
+      - CIPHER_KEY
+      - CIPHER_IV_KEY
+      - PDFGENERATOR_URL
+      - GMAIL_EMAIL
+      - GMAIL_APP_PASSWORD
+      - MAILGUN_API_KEY
+      - MAILGUN_DOMAIN
+      - SMTP_SERVER
+      - SMTP_PORT
+      - SMTP_SECURE
+      - SMTP_USERNAME
+      - SMTP_PASSWORD
+      - EMAIL_FROM
+      - EMAIL_REPLY_TO
+      - EMAIL_BCC
+    expose:
+      - '$EMAILER_PORT'
+    networks:
+      - net
+    depends_on:
+      - mongo
+      - pdfgenerator
+  ###############################################################################
+  # api
+  ###############################################################################
+  api:
+    image: 'ghcr.io/microrealestate/microrealestate/api:${MRE_VERSION:-latest}'
+    volumes:
+      - ./backup:/usr/app/backup
+    environment:
+      - NODE_ENV
+      - PORT=$API_PORT
+      - LOGGER_LEVEL
+      - MONGO_URL
+      - DEMO_MODE
+      - EMAILER_URL
+      - PDFGENERATOR_URL
+      - RESTORE_DB
+      - ACCESS_TOKEN_SECRET=$AUTHENTICATOR_ACCESS_TOKEN_SECRET
+      - CIPHER_KEY
+      - CIPHER_IV_KEY
+    expose:
+      - '$API_PORT'
+    networks:
+      - net
+    depends_on:
+      - mongo
+      - emailer
+      - pdfgenerator
+  ###############################################################################
+  # tenant api
+  ###############################################################################
+  tenantapi:
+    image: 'ghcr.io/microrealestate/microrealestate/tenantapi:${MRE_VERSION:-latest}'
+    environment:
+      - NODE_ENV
+      - PORT=$TENANTAPI_PORT
+      - LOGGER_LEVEL
+      - MONGO_URL
+      - DEMO_MODE
+      - ACCESS_TOKEN_SECRET=$AUTHENTICATOR_ACCESS_TOKEN_SECRET
+    expose:
+      - '$TENANTAPI_PORT'
+    networks:
+      - net
+    depends_on:
+      - mongo
+  ###############################################################################
+  # Landlord frontend
+  ###############################################################################
+  landlord-frontend:
+    image: 'ghcr.io/microrealestate/microrealestate/landlord-frontend:${MRE_VERSION:-latest}'
+    environment:
+      - BASE_PATH=$LANDLORD_BASE_PATH
+      - PORT=$LANDLORD_FRONTEND_PORT
+      - DOCKER_GATEWAY_URL
+      - APP_NAME
+      - CORS_ENABLED
+      - DEMO_MODE
+      - GATEWAY_URL
+      - NODE_ENV
+      - SIGNUP
+    expose:
+      - '$LANDLORD_FRONTEND_PORT'
+    networks:
+      - net
+    depends_on:
+      - gateway
+  ###############################################################################
+  # Tenant frontend
+  ###############################################################################
+  tenant-frontend:
+    image: 'ghcr.io/microrealestate/microrealestate/tenant-frontend:${MRE_VERSION:-latest}'
+    environment:
+      - BASE_PATH=$TENANT_BASE_PATH
+      - PORT=$TENANT_FRONTEND_PORT
+      - DOCKER_GATEWAY_URL
+      - APP_NAME
+      - CORS_ENABLED
+      - DEMO_MODE
+      - GATEWAY_URL
+      - NODE_ENV
+      - DOMAIN_URL
+    expose:
+      - '$TENANT_FRONTEND_PORT'
+    networks:
+      - net
+    depends_on:
+      - gateway
+###############################################################################
+# microservices network
+###############################################################################
+networks:
+  net:
+    driver: bridge

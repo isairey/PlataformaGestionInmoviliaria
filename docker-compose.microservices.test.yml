@@ -1,0 +1,32 @@
+services:
+  ###############################################################################
+  # Gateway
+  ###############################################################################
+  gateway:
+    environment:
+      - RESETSERVICE_URL
+    depends_on:
+      - resetservice
+  ###############################################################################
+  # ResetService
+  ###############################################################################
+  resetservice:
+    restart: unless-stopped
+    image: 'ghcr.io/microrealestate/microrealestate/resetservice:${MRE_VERSION:-latest}'
+    build:
+      context: .
+      dockerfile: services/resetservice/Dockerfile
+    environment:
+      - NODE_ENV
+      - PORT=$RESETSERVICE_PORT
+      - LOGGER_LEVEL
+      - REDIS_URL
+      - REDIS_PASSWORD
+      - MONGO_URL
+    expose:
+      - "$RESETSERVICE_PORT"
+    networks:
+      - net
+    depends_on:
+      - redis
+      - mongo
