@@ -1,147 +1,382 @@
-# MicroRealEstate
+<div align="center">
 
-[![Continuous Integration](https://github.com/microrealestate/microrealestate/actions/workflows/ci.yml/badge.svg?event=push)](https://github.com/microrealestate/microrealestate/actions/workflows/ci.yml)
+<img width="220" src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" />
 
-MicroRealEstate is an open-source application designed to assist landlords in managing their properties and rentals. MicroRealEstate (MRE) serves as a centralized platform for landlords to streamline their property management tasks.
+# 🏢 MicroRealEstate MX
 
-## Key Features
+### Plataforma de gestión inmobiliaria y rentas 🚀
 
-- Centralized Property and Tenant Information: MRE allows landlords to store all property and tenant details in one convenient location. From property specifications to tenant records and contact information.
+<p align="center">
+  <b>MicroRealEstate MX</b> es una plataforma open source diseñada para la administración de propiedades, inquilinos, contratos y pagos de renta desde un sistema centralizado, moderno y escalable.
+</p>
 
-- Rent Lease Creation: MRE simplifies the process of creating rent leases. It offers customizable templates that enable landlords to generate lease.
+<p align="center">
+  <img src="https://img.shields.io/badge/RealEstate-Management-blue?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&logo=docker&logoColor=white">
+  <img src="https://img.shields.io/badge/MongoDB-Database-47A248?style=for-the-badge&logo=mongodb&logoColor=white">
+  <img src="https://img.shields.io/badge/OpenSource-Platform-success?style=for-the-badge">
+</p>
 
-- Rent Payment Tracking: MRE provides a comprehensive system for tracking rent payments, helping landlords stay updated on transactions and promptly address any overdue payments.
+<p align="center">
+  <a href="#-acerca-del-proyecto">Acerca</a> •
+  <a href="#-características">Características</a> •
+  <a href="#-tecnologías-utilizadas">Tecnologías</a> •
+  <a href="#-instalación">Instalación</a> •
+  <a href="#-roadmap">Roadmap</a>
+</p>
 
-- Custom Document Generation: MRE allows landlords to create custom documents for effective communication with tenants. Personalized letters, notices, and announcements can be generated to ensure clear and consistent correspondence.
+</div>
 
-- Collaboration: Whether you are an independent landlord or manage a real estate business with multiple collaborators, MRE supports collaboration and facilitates task coordination within teams.
+---
 
-## Screenshots
+# 🌌 Acerca del proyecto
 
-|                                                                                                                           |                                                                                                                                   |                                                                                                                                       |
-| :-----------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------: |
-|                                                      **Rents page**                                                       |                                                **Send notices, receipt by email**                                                 |                                                            **Pay a rent**                                                             |
-|      [<img src="./documentation/pictures/rents.png" alt="drawing" width="200"/>](./documentation/pictures/rents.png)      | [<img src="./documentation/pictures/sendmassemails.png" alt="drawing" width="200"/>](./documentation/pictures/sendmassemails.png) |          [<img src="./documentation/pictures/payment.png" alt="drawing" width="200"/>](./documentation/pictures/payment.png)          |
-|                                                     **Tenants page**                                                      |                                                        **Tenant details**                                                         |                                                                                                                                       |
-|    [<img src="./documentation/pictures/tenants.png" alt="drawing" width="200"/>](./documentation/pictures/tenants.png)    | [<img src="./documentation/pictures/tenantcontract.png" alt="drawing" width="200"/>](./documentation/pictures/tenantcontract.png) |                                                                                                                                       |
-|                                                    **Properties page**                                                    |                                                       **Property details**                                                        |                                                                                                                                       |
-| [<img src="./documentation/pictures/properties.png" alt="drawing" width="200"/>](./documentation/pictures/properties.png) |       [<img src="./documentation/pictures/property.png" alt="drawing" width="200"/>](./documentation/pictures/property.png)       |                                                                                                                                       |
-|                                                     **Landlord page**                                                     |                                                        **Template leases**                                                        |                                                         **Author a contract**                                                         |
-|   [<img src="./documentation/pictures/landlord.png" alt="drawing" width="200"/>](./documentation/pictures/landlord.png)   |         [<img src="./documentation/pictures/leases.png" alt="drawing" width="200"/>](./documentation/pictures/leases.png)         | [<img src="./documentation/pictures/contracttemplate.png" alt="drawing" width="200"/>](./documentation/pictures/contracttemplate.png) |
-|                                                        **Members**                                                        |                                                                                                                                   |
-|    [<img src="./documentation/pictures/members.png" alt="drawing" width="200"/>](./documentation/pictures/members.png)    |                                                                                                                                   |
+**MicroRealEstate MX** es un sistema de administración inmobiliaria enfocado en propietarios, administradores y empresas de bienes raíces.
 
-## Self-host the application
+La plataforma permite:
 
-> **Prerequisite**
->
-> - [Install Docker and Compose](https://docs.docker.com/compose/install)
+- 🏢 Gestión de propiedades
+- 👥 Administración de inquilinos
+- 📄 Creación de contratos
+- 💳 Seguimiento de pagos
+- 📧 Envío de notificaciones
+- 📑 Generación de documentos
+- 🤝 Colaboración entre administradores
+- 📊 Control de rentas y finanzas
 
-### Download the docker-compose.yml file
+El proyecto fue desarrollado para practicar:
 
-``` shell
+- Arquitectura Full Stack
+- Dockerización
+- Gestión inmobiliaria
+- Bases de datos NoSQL
+- Automatización documental
+- Aplicaciones escalables
+
+---
+
+# ✨ Características
+
+## 🏢 Gestión de propiedades
+
+- 🏠 Registro de propiedades
+- 📋 Información detallada
+- 📍 Administración de ubicaciones
+- 📸 Gestión de imágenes
+- 🧾 Historial de propiedades
+
+---
+
+## 👥 Gestión de inquilinos
+
+- 👤 Registro de arrendatarios
+- 📄 Información contractual
+- 📧 Datos de contacto
+- 📋 Historial de pagos
+- 🔔 Notificaciones automáticas
+
+---
+
+## 💳 Gestión de pagos
+
+- 💰 Control de rentas
+- 📅 Seguimiento de pagos
+- ⚠️ Alertas de adeudos
+- 🧾 Recibos digitales
+- 📊 Reportes financieros
+
+---
+
+## 📄 Documentos y contratos
+
+- 📝 Plantillas de contratos
+- 📑 Generación automática
+- 📧 Envío por correo
+- 🖨️ Exportación PDF
+- 📂 Almacenamiento documental
+
+---
+
+## 🤝 Colaboración
+
+- 👨‍💼 Gestión de miembros
+- 🔐 Roles y permisos
+- 🏢 Equipos inmobiliarios
+- 📊 Coordinación administrativa
+- 🌐 Multiusuario
+
+---
+
+# 🛠️ Tecnologías utilizadas
+
+## 🌐 Backend
+
+<p>
+  <img src="https://skillicons.dev/icons?i=nodejs,express" />
+</p>
+
+- Node.js
+- Express
+- APIs REST
+- Arquitectura modular
+
+---
+
+## 🗄️ Base de datos
+
+<p>
+  <img src="https://skillicons.dev/icons?i=mongodb" />
+</p>
+
+- MongoDB
+- NoSQL
+- Gestión documental
+- Persistencia distribuida
+
+---
+
+## 🐳 DevOps
+
+<p>
+  <img src="https://skillicons.dev/icons?i=docker,git,github" />
+</p>
+
+- Docker
+- Docker Compose
+- Git
+- GitHub
+
+---
+
+## 🎨 Frontend
+
+<p>
+  <img src="https://skillicons.dev/icons?i=html,css,js" />
+</p>
+
+- HTML5
+- CSS3
+- JavaScript
+- Responsive Design
+
+---
+
+# 📂 Estructura del proyecto
+
+```bash
+MicroRealEstateMX/
+│
+├── backend/
+│
+├── frontend/
+│
+├── documentation/
+│   ├── pictures/
+│   └── DEVELOPER.md
+│
+├── docker-compose.yml
+├── .env
+│
+└── README.md
+```
+
+---
+
+# ⚡ Instalación
+
+## 📋 Requisitos
+
+- Docker
+- Docker Compose
+- Git
+- Node.js (opcional para desarrollo)
+
+---
+
+# 🚀 Configuración del proyecto
+
+## 1️⃣ Crear directorio
+
+```bash
 mkdir mre
 cd mre
+```
+
+---
+
+## 2️⃣ Descargar archivos
+
+```bash
 curl https://raw.githubusercontent.com/microrealestate/microrealestate/master/docker-compose.yml > docker-compose.yml
+
 curl https://raw.githubusercontent.com/microrealestate/microrealestate/master/.env.domain > .env
 ```
 
-Update the secrets and tokens in the `.env` file (at the end of the file).
+---
 
-**🚨 IMPORTANT**
+## 3️⃣ Configurar variables
 
-In case you previously ran the application, the secrets, the tokens and the MONGO_URL must be reported from previous .env file to the new one.
-Otherwise, the application will not point to the correct database and will not be able to login with the previous credentials.
+Editar el archivo:
 
-### Localhost setup
+```bash
+.env
+```
 
-Start the application under localhost:
+Configurar:
 
-``` shell
+- Tokens
+- Secrets
+- Mongo URL
+- APP_DOMAIN
+- APP_PORT
+
+---
+
+# 🐳 Ejecutar con Docker
+
+## 🌐 Localhost
+
+```bash
 APP_PORT=8080 docker compose --profile local up
 ```
-The application will be available on http://localhost:8080/landlord and http://localhost:8080/tenant.
 
+Aplicación disponible en:
 
-### Ip setup
+```bash
+http://localhost:8080/landlord
+http://localhost:8080/tenant
+```
 
-Start the application under a custom ip:
+---
 
-``` shell
+## 🌍 Configuración con IP
+
+```bash
 sudo APP_DOMAIN=x.x.x.x docker compose up
 ```
-x.x.x.x is the ip address of the server.
 
-The application will be available on http://x.x.x.x/landlord and http://x.x.x.x/tenant.
+---
 
-In case you need to use a port number do not pass it in the APP_DOMAIN. You can use the APP_PORT environment variable.
+## 🔒 Configuración HTTPS
 
-
-### Domain with https setup
-
-Start the app under a custom domain over https:
-
-``` shell
+```bash
 sudo APP_DOMAIN=app.example.com APP_PROTOCOL=https docker compose up
 ```
 
-Make sure your DNS records are pointing to the private server. The application will automatically issue the ssl certificate.
+---
 
-The application will be available on https://app.example.com/landlord and https://app.example.com/tenant.
+# 💾 Backup y restauración
 
+## 📦 Backup
 
-### Backup and restore the data
-
-The backup and restore commands can be executed when the application is running to allow connecting to MongoDB.
-
-#### Backup
-
-In the mre directory run:
-
-``` shell
+```bash
 docker compose run mongo /usr/bin/mongodump --uri=mongodb://mongo/mredb --gzip --archive=./backup/mredb-$(date +%F_%T).dump
 ```
 
-Replace "mredb" with the name of your database (see .env file). By default, the database name is "mredb".
+---
 
-The archive file will be placed in the "backup" folder.
+## ♻️ Restaurar backup
 
-#### Restore
-
-In the mre/backup directory, select an archive file you want to restore. 
-
-Then run the restore command:
-
-``` shell
-docker compose run mongo /usr/bin/mongorestore --uri=mongodb://mongo/mredb --drop --gzip --archive=./backup/mredb-XXXX.dump 
+```bash
+docker compose run mongo /usr/bin/mongorestore --uri=mongodb://mongo/mredb --drop --gzip --archive=./backup/mredb-XXXX.dump
 ```
 
-Where mredb-XXXX.dump is the archive file you selected.
+---
 
-Again, replace "mredb" with the name of your database (see .env file). By default, the database name is "mredb".
+# 📸 Vista previa
 
+<div align="center">
 
-## Developers
+<img width="1000" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop" />
 
-To run the application in development mode, follow the steps outlined in the documentation available [here](./documentation/DEVELOPER.md)
+</div>
 
-## Donate
+---
 
-Thank you for your interest in supporting MicroRealEstate.
-Every contribution will help us pay our ongoing maintenance and development costs 🙏
+# 🧠 Objetivos del proyecto
 
-[![Donate](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub)](https://github.com/sponsors/camelaissani)
+## 🎯 Aprender y practicar
 
-## Contact
+- Docker
+- MongoDB
+- Gestión inmobiliaria
+- Arquitectura escalable
+- APIs REST
+- Sistemas multiusuario
+- Administración financiera
 
-LinkedIn: [www.linkedin.com/in/caissani](https://www.linkedin.com/in/caissani/)
+---
 
-X: [@camelaissani](https://x.com/camelaissani)
+# 🚧 Roadmap
 
-## License
+## 🔮 Próximas mejoras
 
-The project is licensed under the MIT License. To view the license details, please follow the link below:
+- 📱 Aplicación móvil
+- 🤖 Automatización inteligente
+- 📊 Dashboard avanzado
+- ☁️ Integración cloud
+- 🔔 Notificaciones push
+- 💳 Integración bancaria
+- 📑 Firma electrónica
 
-[MIT License](./LICENSE)
+---
 
-Feel free to review the license terms and conditions to understand the permissions and restrictions associated with the project.
+# 🤝 Contribuciones
+
+Las contribuciones son bienvenidas ❤️
+
+## Cómo contribuir
+
+1. Fork del proyecto
+
+```bash
+git checkout -b feature/nueva-funcionalidad
+```
+
+2. Commit
+
+```bash
+git commit -m "✨ Nueva funcionalidad"
+```
+
+3. Push
+
+```bash
+git push origin feature/nueva-funcionalidad
+```
+
+4. Pull Request 🚀
+
+---
+
+# 👨‍💻 Comunidad
+
+<div align="center">
+
+## MicroRealEstate MX — gestión inmobiliaria moderna
+
+Plataforma open source enfocada en administración de propiedades, rentas y contratos digitales 🇲🇽
+
+</div>
+
+---
+
+# 🌟 Apoya el proyecto
+
+⭐ Dale una estrella  
+🍴 Haz fork  
+📢 Comparte el proyecto
+
+---
+
+# 📜 Licencia
+
+Proyecto open source bajo licencia MIT para fines educativos, empresariales y de administración inmobiliaria moderna.
+
+---
+
+<div align="center">
+
+### 🏢 MicroRealEstate MX — administración inteligente de propiedades y rentas 🚀
+
+</div>
