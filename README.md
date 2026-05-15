@@ -1,20 +1,20 @@
 <div align="center">
 
-<img width="220" src="https://cdn-icons-png.flaticon.com/512/1046/1046857.png" />
+<img width="220" src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" />
 
-# 🏠 Rental House Management System
+# 🏢 MicroRealEstate MX
 
-### Plataforma web para administración de propiedades y rentas 🚀
+### Plataforma de gestión inmobiliaria y rentas 🚀
 
 <p align="center">
-  <b>Rental House Management System</b> es una plataforma web desarrollada para la gestión de propiedades, arrendatarios, pagos y administración inmobiliaria desde un entorno moderno, práctico y escalable.
+  <b>MicroRealEstate MX</b> es una plataforma open source diseñada para la administración de propiedades, inquilinos, contratos y pagos de renta desde un sistema centralizado, moderno y escalable.
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/PHP-Web%20Application-777BB4?style=for-the-badge&logo=php&logoColor=white">
-  <img src="https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
-  <img src="https://img.shields.io/badge/Bootstrap-Responsive%20UI-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
-  <img src="https://img.shields.io/badge/OpenSource-Project-success?style=for-the-badge">
+  <img src="https://img.shields.io/badge/RealEstate-Management-blue?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&logo=docker&logoColor=white">
+  <img src="https://img.shields.io/badge/MongoDB-Database-47A248?style=for-the-badge&logo=mongodb&logoColor=white">
+  <img src="https://img.shields.io/badge/OpenSource-Platform-success?style=for-the-badge">
 </p>
 
 <p align="center">
@@ -22,7 +22,7 @@
   <a href="#-características">Características</a> •
   <a href="#-tecnologías-utilizadas">Tecnologías</a> •
   <a href="#-instalación">Instalación</a> •
-  <a href="#-vistas-del-sistema">Vistas</a>
+  <a href="#-roadmap">Roadmap</a>
 </p>
 
 </div>
@@ -31,84 +31,79 @@
 
 # 🌌 Acerca del proyecto
 
-**Rental House Management System** es un sistema web desarrollado originalmente en 2018 para facilitar la administración de propiedades, habitaciones y contratos de renta.
+**MicroRealEstate MX** es un sistema de administración inmobiliaria enfocado en propietarios, administradores y empresas de bienes raíces.
 
-El sistema fue diseñado inicialmente para:
+La plataforma permite:
 
-- 🏢 Gestión administrativa inmobiliaria
-- 👥 Control de inquilinos
-- 💳 Gestión de pagos
-- 📩 Comunicación mediante SMS
-- 🧾 Administración documental
-- 📊 Monitoreo de propiedades
+- 🏢 Gestión de propiedades
+- 👥 Administración de inquilinos
+- 📄 Creación de contratos
+- 💳 Seguimiento de pagos
+- 📧 Envío de notificaciones
+- 📑 Generación de documentos
+- 🤝 Colaboración entre administradores
+- 📊 Control de rentas y finanzas
 
-Con el paso del tiempo, el proyecto evolucionó mejorando:
+El proyecto fue desarrollado para practicar:
 
-- 🔒 Seguridad
-- ⚡ Rendimiento
-- 🧠 Arquitectura interna
-- 🌐 Estabilidad
-- 📱 Compatibilidad móvil
-
-Actualmente sirve como una excelente base educativa para aprender:
-
-- PHP clásico
-- Programación orientada a objetos
-- Arquitectura web
-- Integración con MySQL
-- Sistemas administrativos inmobiliarios
+- Arquitectura Full Stack
+- Dockerización
+- Gestión inmobiliaria
+- Bases de datos NoSQL
+- Automatización documental
+- Aplicaciones escalables
 
 ---
 
 # ✨ Características
 
-## 🏠 Gestión inmobiliaria
+## 🏢 Gestión de propiedades
 
-- 🏢 Registro de propiedades
-- 🛏️ Gestión de habitaciones
-- 📋 Listado de inmuebles
-- 📍 Administración de unidades
-- 📸 Visualización de propiedades
+- 🏠 Registro de propiedades
+- 📋 Información detallada
+- 📍 Administración de ubicaciones
+- 📸 Gestión de imágenes
+- 🧾 Historial de propiedades
 
 ---
 
 ## 👥 Gestión de inquilinos
 
 - 👤 Registro de arrendatarios
-- 📄 Contratos de renta
-- 📅 Historial de ocupación
-- 📞 Información de contacto
-- 📋 Administración de perfiles
+- 📄 Información contractual
+- 📧 Datos de contacto
+- 📋 Historial de pagos
+- 🔔 Notificaciones automáticas
 
 ---
 
-## 💳 Gestión financiera
+## 💳 Gestión de pagos
 
-- 💰 Control de pagos
-- 🧾 Generación de recibos
-- 📊 Seguimiento financiero
-- ⚠️ Alertas administrativas
-- 📈 Reportes del sistema
-
----
-
-## 📩 Sistema de notificaciones
-
-- 📲 Integración SMS
-- 🔔 Alertas automáticas
-- 📧 Comunicación administrativa
-- 📨 Notificaciones de pagos
-- 📢 Herramientas de marketing
+- 💰 Control de rentas
+- 📅 Seguimiento de pagos
+- ⚠️ Alertas de adeudos
+- 🧾 Recibos digitales
+- 📊 Reportes financieros
 
 ---
 
-## 🌐 Plataforma web
+## 📄 Documentos y contratos
 
-- 📱 Responsive Design
-- 🎨 Interfaz administrativa
-- 📰 Blog integrado
-- 🔐 Panel de administración
-- ⚡ Navegación optimizada
+- 📝 Plantillas de contratos
+- 📑 Generación automática
+- 📧 Envío por correo
+- 🖨️ Exportación PDF
+- 📂 Almacenamiento documental
+
+---
+
+## 🤝 Colaboración
+
+- 👨‍💼 Gestión de miembros
+- 🔐 Roles y permisos
+- 🏢 Equipos inmobiliarios
+- 📊 Coordinación administrativa
+- 🌐 Multiusuario
 
 ---
 
@@ -117,52 +112,52 @@ Actualmente sirve como una excelente base educativa para aprender:
 ## 🌐 Backend
 
 <p>
-  <img src="https://skillicons.dev/icons?i=php" />
+  <img src="https://skillicons.dev/icons?i=nodejs,express" />
 </p>
 
-- PHP
-- Programación imperativa
-- Programación orientada a objetos
-- Arquitectura web tradicional
+- Node.js
+- Express
+- APIs REST
+- Arquitectura modular
 
 ---
 
 ## 🗄️ Base de datos
 
 <p>
-  <img src="https://skillicons.dev/icons?i=mysql" />
+  <img src="https://skillicons.dev/icons?i=mongodb" />
 </p>
 
-- MySQL
-- PHPMyAdmin
-- Persistencia relacional
-- Gestión de registros
+- MongoDB
+- NoSQL
+- Gestión documental
+- Persistencia distribuida
+
+---
+
+## 🐳 DevOps
+
+<p>
+  <img src="https://skillicons.dev/icons?i=docker,git,github" />
+</p>
+
+- Docker
+- Docker Compose
+- Git
+- GitHub
 
 ---
 
 ## 🎨 Frontend
 
 <p>
-  <img src="https://skillicons.dev/icons?i=html,css,js,bootstrap" />
+  <img src="https://skillicons.dev/icons?i=html,css,js" />
 </p>
 
 - HTML5
 - CSS3
 - JavaScript
-- Bootstrap
-- W3.CSS
-- LESS
-- Font Awesome
-
----
-
-## ⚙️ Librerías JavaScript
-
-- jQuery
-- FancyBox
-- AJAX
-- Modernizr
-- Bootstrap JS
+- Responsive Design
 
 ---
 
@@ -171,21 +166,18 @@ Actualmente sirve como una excelente base educativa para aprender:
 ```bash
 PlataformaGestionInmoviliaria/
 │
-├── admin/
-│   ├── functions/
-│   └── dashboard/
+├── backend/
 │
-├── database/
-│   └── Company.sql
+├── frontend/
 │
-├── assets/
+├── documentation/
+│   ├── pictures/
+│   └── DEVELOPER.md
 │
-├── blog/
+├── docker-compose.yml
+├── .env
 │
-├── index.php
-├── README.md
-│
-└── screenshots/
+└── README.md
 ```
 
 ---
@@ -194,100 +186,99 @@ PlataformaGestionInmoviliaria/
 
 ## 📋 Requisitos
 
-- XAMPP / WAMP
-- PHP 7+
-- MySQL
-- Apache Server
-- Navegador web
+- Docker
+- Docker Compose
+- Git
+- Node.js (opcional para desarrollo)
 
 ---
 
 # 🚀 Configuración del proyecto
 
-## 1️⃣ Clonar repositorio
+## 1️⃣ Crear directorio
 
 ```bash
-git clone https://github.com/isairey/PlataformaGestionInmoviliaria.git
+mkdir mre
+cd mre
 ```
 
 ---
 
-## 2️⃣ Crear base de datos
-
-Crear una base de datos llamada:
+## 2️⃣ Descargar archivos
 
 ```bash
-Company
+curl https://raw.githubusercontent.com/isairey/PlataformaGestionInmoviliaria/main/docker-compose.yml > docker-compose.yml
+
+curl https://raw.githubusercontent.com/isairey/PlataformaGestionInmoviliaria/main/.env.domain > .env
 ```
 
 ---
 
-## 3️⃣ Importar SQL
-
-Importar el archivo:
-
-```bash
-database/Company.sql
-```
-
-usando PHPMyAdmin.
-
----
-
-## 4️⃣ Configurar conexión
+## 3️⃣ Configurar variables
 
 Editar el archivo:
 
 ```bash
-admin/functions/db.php
+.env
 ```
 
 Configurar:
 
-```php
-$host= 'YourHost';
-$user='YourDatabaseUserName';
-$usrpassword='YourDBPassword';
-$database='YourDBName';
-```
+- Tokens
+- Secrets
+- Mongo URL
+- APP_DOMAIN
+- APP_PORT
 
 ---
 
-## 5️⃣ Configurar SMS
+# 🐳 Ejecutar con Docker
 
-Actualizar:
-
-```php
-$sms_apiKey = "YourAPIKey";
-$sms_partnerID = "YourPartinerID";
-$sms_shortcode = "TextSMS";
-```
-
----
-
-## 6️⃣ Ejecutar proyecto
-
-Abrir:
+## 🌐 Localhost
 
 ```bash
-http://localhost/
+APP_PORT=8080 docker compose --profile local up
 ```
 
-Panel administrador:
+Aplicación disponible en:
 
 ```bash
-http://localhost/admin/
+http://localhost:8080/landlord
+http://localhost:8080/tenant
 ```
 
 ---
 
-# 🔑 Credenciales de prueba
+## 🌍 Configuración con IP
 
-## 👨‍💼 Panel administrador
+```bash
+sudo APP_DOMAIN=x.x.x.x docker compose up
+```
 
-```txt
-Usuario: obed@example.com
-Contraseña: mimi
+---
+
+## 🔒 Configuración HTTPS
+
+```bash
+sudo APP_DOMAIN=app.example.com APP_PROTOCOL=https docker compose up
+```
+
+---
+
+# 💾 Backup y restauración
+
+## 📦 Backup
+
+```bash
+docker compose run mongo /usr/bin/mongodump --uri=mongodb://mongo/mredb --gzip --archive=./backup/mredb-$(date +%F_%T).dump
+```
+
+---
+
+## ♻️ Restaurar backup
+
+```bash
+docker compose run mongo /usr/bin/mongorestore --uri=mongodb://mongo/mredb --drop --gzip --archive=./backup/mredb-XXXX.dump
 ```
 
 ---
@@ -296,119 +287,37 @@ Contraseña: mimi
 
 <div align="center">
 
-<img width="1000" src="https://github.com/ObedNyakundi/Rental-house-management-system/blob/main/dashboard_clear.png" />
+<img width="1000" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop" />
 
 </div>
-
----
-
-# 🖥️ Vistas del sistema
-
-## 📊 Dashboard administrativo
-
-<div align="center">
-
-<img width="1000" src="https://github.com/ObedNyakundi/Rental-house-management-system/blob/main/dashboard-2.png" />
-
-</div>
-
----
-
-## 🏠 Listado de propiedades
-
-<div align="center">
-
-<img width="1000" src="https://github.com/ObedNyakundi/Rental-house-management-system/blob/main/houses%20listing.png" />
-
-</div>
-
----
-
-## 👥 Registro de inquilinos
-
-<div align="center">
-
-<img width="1000" src="https://github.com/ObedNyakundi/Rental-house-management-system/blob/main/form-admit%20tenant.png" />
-
-</div>
-
----
-
-## 📰 Blog integrado
-
-<div align="center">
-
-<img width="1000" src="https://github.com/ObedNyakundi/Rental-house-management-system/blob/main/Blog.png" />
-
-</div>
-
----
-
-# 📱 Vista móvil
-
-## 📲 Dashboard móvil
-
-<div align="center">
-
-<img width="300" src="https://github.com/ObedNyakundi/Rental-house-management-system/blob/main/phone_dashboard.png" />
-
-</div>
-
----
-
-## 👤 Gestión móvil de inquilinos
-
-<div align="center">
-
-<img width="300" src="https://github.com/ObedNyakundi/Rental-house-management-system/blob/main/phone_tenants.png" />
-
-</div>
-
----
-
-## 🔔 SMS y notificaciones
-
-<div align="center">
-
-<img width="300" src="https://github.com/ObedNyakundi/Rental-house-management-system/blob/main/Screenshot_2021-06-09-09-02-47.png" />
-
-<img width="300" src="https://github.com/ObedNyakundi/Rental-house-management-system/blob/main/Screenshot_2021-06-09-09-03-02.png" />
-
-</div>
-
----
-
-# 🚀 Nueva versión Laravel
-
-El proyecto cuenta con una versión moderna desarrollada en Laravel con mejoras importantes:
-
-## ✨ Nuevas funciones
-
-- 🏢 Gestión avanzada de apartamentos
-- 🛏️ Unidades de renta
-- 🧾 Facturación automatizada
-- 💳 Pagos integrados
-- 📄 Recibos imprimibles
-- 👨‍💼 Roles administrativos
-- 📲 Marketing SMS masivo
-- 🎨 Personalización visual
 
 ---
 
 # 🧠 Objetivos del proyecto
 
-## 🎯 Aprendizaje y práctica
+## 🎯 Aprender y practicar
 
-- PHP clásico
-- Arquitectura MVC
+- Docker
+- MongoDB
 - Gestión inmobiliaria
-- Integración SMS
-- MySQL
-- Administración web
-- Sistemas empresariales
+- Arquitectura escalable
+- APIs REST
+- Sistemas multiusuario
+- Administración financiera
 
+---
 
+# 🚧 Roadmap
 
+## 🔮 Próximas mejoras
+
+- 📱 Aplicación móvil
+- 🤖 Automatización inteligente
+- 📊 Dashboard avanzado
+- ☁️ Integración cloud
+- 🔔 Notificaciones push
+- 💳 Integración bancaria
+- 📑 Firma electrónica
 
 ---
 
@@ -440,28 +349,34 @@ git push origin feature/nueva-funcionalidad
 
 ---
 
-# 👨‍💻 Créditos
+# 👨‍💻 Comunidad
 
 <div align="center">
 
-## Proyecto desarrollado por Isai Reyes
+## Isai Reyes — gestión inmobiliaria moderna
 
-Sistema administrativo inmobiliario 🏢
+Plataforma open source enfocada en administración de propiedades, rentas y contratos digitales 🇲🇽
 
 </div>
 
 ---
 
+# 🌟 Apoya el proyecto
 
+⭐ Dale una estrella  
+🍴 Haz fork  
+📢 Comparte el proyecto
+
+---
 
 # 📜 Licencia
 
-Proyecto open source utilizado con fines educativos, administrativos y de aprendizaje en tecnologías web PHP.
+Proyecto open source bajo licencia MIT para fines educativos, empresariales y de administración inmobiliaria moderna.
 
 ---
 
 <div align="center">
 
-### 🏠 Rental House Management System — administración inmobiliaria moderna 🚀
+### 🏢 MicroRealEstate MX — administración inteligente de propiedades y rentas 🚀
 
 </div>
