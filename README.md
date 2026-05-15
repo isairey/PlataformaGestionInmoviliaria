@@ -164,7 +164,7 @@ El proyecto fue desarrollado para practicar:
 # 📂 Estructura del proyecto
 
 ```bash
-MicroRealEstateMX/
+PlataformaGestionInmoviliaria/
 │
 ├── backend/
 │
@@ -207,9 +207,9 @@ cd mre
 ## 2️⃣ Descargar archivos
 
 ```bash
-curl https://raw.githubusercontent.com/microrealestate/microrealestate/master/docker-compose.yml > docker-compose.yml
+curl https://raw.githubusercontent.com/isairey/PlataformaGestionInmoviliaria/main/docker-compose.yml > docker-compose.yml
 
-curl https://raw.githubusercontent.com/microrealestate/microrealestate/master/.env.domain > .env
+curl https://raw.githubusercontent.com/isairey/PlataformaGestionInmoviliaria/main/.env.domain > .env
 ```
 
 ---
@@ -353,7 +353,7 @@ git push origin feature/nueva-funcionalidad
 
 <div align="center">
 
-## MicroRealEstate MX — gestión inmobiliaria moderna
+## Isai Reyes — gestión inmobiliaria moderna
 
 Plataforma open source enfocada en administración de propiedades, rentas y contratos digitales 🇲🇽
 
